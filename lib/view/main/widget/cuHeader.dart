@@ -1,0 +1,70 @@
+// ignore_for_file: file_names
+
+import 'package:flutter/material.dart';
+import 'package:portfolio/model/colorBallet.dart';
+
+AppBar cuHeader(BuildContext context, GlobalKey<ScaffoldState> scaffoldKey) {
+  return MediaQuery.of(context).size.width > 600
+      ? cuDesktopHeader(
+          context,
+          homeOnPressed: () {},
+          aboutMeOnPressed: () {},
+          servicesOnPressed: () {},
+          projectsOnPressed: () {},
+          contactOnPressed: () {},
+        )
+      : cuMobileHeader(context, scaffoldKey);
+}
+
+// Mobile header for smaller screens
+AppBar cuMobileHeader(
+  BuildContext context,
+  GlobalKey<ScaffoldState> scaffoldKey,
+) {
+  return AppBar(
+    title: Text('Mobile Header'),
+    leading: IconButton(
+      icon: Icon(Icons.menu),
+      onPressed: () {
+        scaffoldKey.currentState?.openDrawer();
+      },
+    ),
+  );
+}
+
+// Desktop header for larger screens
+AppBar cuDesktopHeader(
+  BuildContext context, {
+  required VoidCallback? homeOnPressed,
+  required VoidCallback? aboutMeOnPressed,
+  required VoidCallback? servicesOnPressed,
+  required VoidCallback? projectsOnPressed,
+  required VoidCallback? contactOnPressed,
+}) {
+  return AppBar(
+    automaticallyImplyLeading: false,
+
+    title: Image.asset('assets/images/logo white.png', height: 60, width: 150),
+
+    // ========== Uncomment the following lines to add a gradient background
+    // flexibleSpace: Container(
+    //   decoration: BoxDecoration(
+    //     gradient: LinearGradient(colors: [Colors.blue, Colors.purple]),
+    //   ),
+    // ),
+    actions: [
+      IconButton(icon: const Text('Home'), onPressed: homeOnPressed),
+      IconButton(icon: const Text('About Me'), onPressed: aboutMeOnPressed),
+      IconButton(icon: const Text('Services'), onPressed: servicesOnPressed),
+      IconButton(icon: const Text('Projects'), onPressed: projectsOnPressed),
+      IconButton(icon: const Text('Contact'), onPressed: contactOnPressed),
+      MaterialButton(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        onPressed: () {},
+        color: mainColor,
+        child: const Text('Download CV', style: TextStyle(color: Colors.white)),
+      ),
+      const SizedBox(width: 30),
+    ],
+  );
+}
