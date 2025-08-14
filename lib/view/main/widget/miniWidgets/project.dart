@@ -7,8 +7,16 @@ Widget project({
   required bool mobileIsSelected,
 }) {
   return Column(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    spacing: 10.0,
     children: [
+      const Text(
+        'Projects',
+        style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+      ),
+      Text(''),
       Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           filterButton(
             title: 'All',

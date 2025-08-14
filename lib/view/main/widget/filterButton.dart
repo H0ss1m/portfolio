@@ -8,23 +8,26 @@ Widget filterButton({
   double marginWidth = 0.0,
   double marginHeight = 0.0,
 }) {
-  return Container(
-    margin: EdgeInsets.symmetric(
-      horizontal: marginWidth,
-      vertical: marginHeight,
-    ),
-    padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
-    decoration: BoxDecoration(
-      color: isSelected ? mainColor : Colors.transparent,
-      borderRadius: BorderRadius.circular(8.0),
-      border: Border.all(
-        color: isSelected ? Colors.transparent : Colors.grey,
-        width: 1.0,
+  return InkWell(
+    onTap: onPressed,
+    child: Container(
+      margin: EdgeInsets.symmetric(
+        horizontal: marginWidth,
+        vertical: marginHeight,
       ),
-    ),
-    child: Text(
-      title,
-      style: TextStyle(color: isSelected ? Colors.white : Colors.black),
+      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+      decoration: BoxDecoration(
+        color: isSelected ? mainColor : Colors.transparent,
+        borderRadius: BorderRadius.circular(8.0),
+        border: Border.all(
+          color: isSelected ? Colors.transparent : Colors.grey,
+          width: 1.0,
+        ),
+      ),
+      child: Text(
+        title,
+        style: TextStyle(color: isSelected ? Colors.white : Colors.black),
+      ),
     ),
   );
 }
