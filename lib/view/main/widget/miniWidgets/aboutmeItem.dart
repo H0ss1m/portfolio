@@ -11,7 +11,9 @@ Widget aboutMeItem(
     crossAxisAlignment: CrossAxisAlignment.center,
     spacing: 15,
     children: [
-      Expanded(child: Image.asset('assets/images/me.png', height: 550)),
+      Expanded(
+        child: Center(child: Image.asset('assets/images/me.png', height: 550)),
+      ),
       Expanded(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/view/main/widget/filterButton.dart';
+import 'package:portfolio/view/main/widget/projectsViewer.dart';
 
 Widget project({
   required bool allIsSelected,
@@ -8,13 +9,13 @@ Widget project({
 }) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.center,
-    spacing: 10.0,
+    spacing: 20.0,
     children: [
       const Text(
         'Projects',
         style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
       ),
-      Text(''),
+      const Text('You have no projects yet.'),
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -38,6 +39,7 @@ Widget project({
           ),
         ],
       ),
+      projectViewer(),
     ],
   );
 }
