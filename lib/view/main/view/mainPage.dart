@@ -14,11 +14,15 @@ class _MainPageState extends State<MainPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   double dartValue = 85;
   double flutterValue = 90;
-  double graphicDesignValue = 75;
-  double uiUxDesignValue = 55;
+  double photoshopValue = 75;
+  double illustratorValue = 55;
+  double websiteValue = 80;
+  double desktopValue = 90;
   bool allIsSelected = false;
   bool webIsSelected = true;
   bool mobileIsSelected = false;
+  bool desktopIsSelected = false;
+  bool designIsSelected = false;
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +35,15 @@ class _MainPageState extends State<MainPage> {
               context,
               dartValue,
               flutterValue,
-              graphicDesignValue,
-              uiUxDesignValue,
+              photoshopValue,
+              illustratorValue,
+              websiteValue,
+              desktopValue,
               allIsSelected,
               webIsSelected,
               mobileIsSelected,
+              desktopIsSelected,
+              designIsSelected,
             )
           : mobileView(),
     );

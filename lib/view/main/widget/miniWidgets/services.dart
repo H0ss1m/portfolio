@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/model/colorBallet.dart';
+import 'package:portfolio/view/main/widget/miniWidgets/servicesView.dart';
 
 Widget services() {
   return Column(
@@ -17,65 +18,22 @@ Widget services() {
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Expanded(
-            child: Container(
-              padding: EdgeInsets.all(8.0),
-              decoration: BoxDecoration(
-                color: boxColor,
-                borderRadius: BorderRadius.circular(8.0),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Image.asset(
-                    'assets/icons/mobile-app.png',
-                    color: mainColor,
-                    height: 50,
-                  ),
-                  Text(
-                    'Mobile App Development',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-            ),
+          servicesView(
+            title: 'Service 1',
+            description: 'Description for Service 1',
+            imagePath: 'assets/icons/mobile-app.png',
           ),
           const SizedBox(width: 8.0),
-          Expanded(
-            child: Container(
-              padding: EdgeInsets.all(8.0),
-              decoration: BoxDecoration(
-                color: boxColor,
-                borderRadius: BorderRadius.circular(8.0),
-              ),
-              child: Column(
-                children: [Icon(Icons.settings), Text('Service 2')],
-              ),
-            ),
+          servicesView(
+            title: 'Service 2',
+            description: 'Description for Service 2',
+            imagePath: 'assets/icons/mobile-app.png',
           ),
           const SizedBox(width: 8.0),
-          Expanded(
-            child: Container(
-              padding: EdgeInsets.all(8.0),
-              decoration: BoxDecoration(
-                color: boxColor,
-                borderRadius: BorderRadius.circular(8.0),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Image.asset(
-                    'assets/icons/mobile-app.png',
-                    color: mainColor,
-                    height: 50,
-                  ),
-                  Text(
-                    'Mobile App Development',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-            ),
+          servicesView(
+            title: 'Service 3',
+            description: 'Description for Service 3',
+            imagePath: 'assets/icons/mobile-app.png',
           ),
         ],
       ),
