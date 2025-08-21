@@ -15,6 +15,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   List<QueryDocumentSnapshot> data = [];
+  List<QueryDocumentSnapshot> skillsData = [];
   bool _isLoading = true;
   String? _error;
 
@@ -40,29 +41,69 @@ class _MainPageState extends State<MainPage> {
     }
   }
 
+  getSkillsData() async {
+    try {
+      QuerySnapshot snapshot2 = await FirebaseFirestore.instance
+          .collection('skills')
+          .get();
+      if (mounted) {
+        // Check if the widget is still in the tree
+        setState(() {
+          skillsData = snapshot2.docs;
+          _isLoading = false;
+        });
+      }
+    } catch (e) {
+      if (mounted) {
+        setState(() {
+          _error = "Failed to load projects: $e";
+          _isLoading = false;
+        });
+      }
+    }
+  }
+
   @override
   void initState() {
     super.initState();
     Get.put(PortfolioController());
     getData();
+    getSkillsData();
   }
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  double dartValue = 85;
-  double flutterValue = 90;
-  double photoshopValue = 75;
-  double illustratorValue = 55;
-  double websiteValue = 80;
-  double desktopValue = 90;
-  double excelValue = 70;
-  double wordValue = 85;
-  double powerPointValue = 90;
-  
+  final homeKey = GlobalKey();
+  final aboutMeKey = GlobalKey();
+  final servicesKey = GlobalKey();
+  final projectsKey = GlobalKey();
+  final contactKey = GlobalKey();
+
+  Future<void> scrollToSection(GlobalKey key) async {
+    if (key.currentContext != null) {
+      final context = key.currentContext!;
+      final renderBox = context.findRenderObject() as RenderBox;
+      final position = renderBox.localToGlobal(Offset.zero);
+      await Scrollable.ensureVisible(
+        context,
+        duration: const Duration(seconds: 1),
+        curve: Curves.easeInOut,
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      appBar: cuHeader(context, _scaffoldKey),
+      appBar: cuHeader(
+        context,
+        _scaffoldKey,
+        homeOnPressed: () => scrollToSection(homeKey),
+        aboutMeOnPressed: () => scrollToSection(aboutMeKey),
+        servicesOnPressed: () => scrollToSection(servicesKey),
+        projectsOnPressed: () => scrollToSection(projectsKey),
+        contactOnPressed: () => scrollToSection(contactKey),
+      ),
       drawer: Drawer(),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
@@ -71,16 +112,14 @@ class _MainPageState extends State<MainPage> {
           : MediaQuery.of(context).size.width > 600
           ? desktopView(
               context,
-              dartValue,
-              flutterValue,
-              photoshopValue,
-              illustratorValue,
-              websiteValue,
-              desktopValue,
-              excelValue,
-              wordValue,
-              powerPointValue,
+              skillsData: skillsData,
               data: data,
+              scaffoldKey: _scaffoldKey,
+              homeKey: homeKey,
+              aboutMeKey: aboutMeKey,
+              servicesKey: servicesKey,
+              projectsKey: projectsKey,
+              contactKey: contactKey,
             )
           : mobileView(),
     );

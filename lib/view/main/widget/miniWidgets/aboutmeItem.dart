@@ -1,21 +1,17 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/model/colorBallet.dart';
 import 'package:portfolio/view/main/widget/aboutViewer.dart';
 
 Widget aboutMeItem(
-  double dartValue,
-  double flutterValue,
-  double photoshopValue,
-  double illustratorValue,
-  double websiteValue,
-  double desktopValue,
-  double excelValue,
-  double wordValue,
-  double powerPointValue,
+  {
+    required List<QueryDocumentSnapshot> skillsData,
+    required GlobalKey aboutKey,
+  }
   // {required Key? key,}
 ) {
   return Row(
-    // key: key,
+    key: aboutKey,
     crossAxisAlignment: CrossAxisAlignment.center,
     spacing: 15,
     children: [
@@ -35,18 +31,17 @@ Widget aboutMeItem(
               style: TextStyle(fontSize: 16, color: textBlack),
             ),
             const SizedBox(height: 20),
-            aboutViewer(percent: dartValue, skillName: 'Dart'),
-            aboutViewer(percent: flutterValue, skillName: 'Flutter'),
-            aboutViewer(percent: websiteValue, skillName: 'Website'),
-            aboutViewer(
-              percent: desktopValue,
-              skillName: 'Desktop Application',
-            ),
-            aboutViewer(percent: photoshopValue, skillName: 'Photoshop'),
-            aboutViewer(percent: illustratorValue, skillName: 'Illustrator'),
-            aboutViewer(percent: wordValue, skillName: 'Word'),
-            aboutViewer(percent: excelValue, skillName: 'Excel'),
-            aboutViewer(percent: powerPointValue, skillName: 'PowerPoint'),
+            ListView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: skillsData.length,
+              itemBuilder: (context, index) {
+                return aboutViewer(
+                  percent: skillsData[index]['value'],
+                  skillName: skillsData[index]['skill'],
+                );
+              },
+            )
           ],
         ),
       ),

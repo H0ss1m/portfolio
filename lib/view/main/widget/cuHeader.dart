@@ -3,15 +3,21 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/model/colorBallet.dart';
 
-AppBar cuHeader(BuildContext context, GlobalKey<ScaffoldState> scaffoldKey) {
+AppBar cuHeader(BuildContext context, GlobalKey<ScaffoldState> scaffoldKey, 
+    {VoidCallback? homeOnPressed,
+    VoidCallback? aboutMeOnPressed,
+    VoidCallback? servicesOnPressed,
+    VoidCallback? projectsOnPressed,
+    VoidCallback? contactOnPressed}
+) {
   return MediaQuery.of(context).size.width > 600
       ? cuDesktopHeader(
           context,
-          homeOnPressed: () {},
-          aboutMeOnPressed: () {},
-          servicesOnPressed: () {},
-          projectsOnPressed: () {},
-          contactOnPressed: () {},
+          homeOnPressed: homeOnPressed,
+          aboutMeOnPressed: aboutMeOnPressed,
+          servicesOnPressed: servicesOnPressed,
+          projectsOnPressed: projectsOnPressed,
+          contactOnPressed: contactOnPressed,
         )
       : cuMobileHeader(context, scaffoldKey);
 }

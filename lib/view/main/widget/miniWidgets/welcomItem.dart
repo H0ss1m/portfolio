@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/model/colorBallet.dart';
 
-Widget welcomeItem(BuildContext context) {
+Widget welcomeItem(BuildContext context, GlobalKey homeKey) {
   return Row(
+    key: homeKey,
     children: [
       Expanded(
         child: Column(

@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/view/main/widget/miniWidgets/servicesView.dart';
 
-Widget services() {
+Widget services(
+  {
+    required GlobalKey servicesKey,
+  }
+) {
   return Column(
+    key: servicesKey,
     spacing: 10,
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [

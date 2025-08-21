@@ -8,8 +8,10 @@ import 'package:portfolio/view/main/widget/projectsViewer.dart';
 Widget project({
   required BuildContext context,
   required List<QueryDocumentSnapshot> data,
+  required GlobalKey projectsKey,
 }) {
   return Column(
+    key: projectsKey,
     crossAxisAlignment: CrossAxisAlignment.center,
     spacing: 20.0,
     children: [
