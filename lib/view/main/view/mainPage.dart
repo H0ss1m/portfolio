@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:portfolio/controller/actions/projectFilters.dart';
 import 'package:portfolio/view/main/view/module/desktopView.dart';
 import 'package:portfolio/view/main/view/module/mobileView.dart';
 import 'package:portfolio/view/main/widget/cuHeader.dart';
@@ -41,6 +43,7 @@ class _MainPageState extends State<MainPage> {
   @override
   void initState() {
     super.initState();
+    Get.put(PortfolioController());
     getData();
   }
 
@@ -54,12 +57,7 @@ class _MainPageState extends State<MainPage> {
   double excelValue = 70;
   double wordValue = 85;
   double powerPointValue = 90;
-  bool allIsSelected = true;
-  bool webIsSelected = false;
-  bool mobileIsSelected = false;
-  bool desktopIsSelected = false;
-  bool designIsSelected = false;
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,11 +80,6 @@ class _MainPageState extends State<MainPage> {
               excelValue,
               wordValue,
               powerPointValue,
-              allIsSelected,
-              webIsSelected,
-              mobileIsSelected,
-              desktopIsSelected,
-              designIsSelected,
               data: data,
             )
           : mobileView(),

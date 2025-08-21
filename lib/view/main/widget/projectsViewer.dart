@@ -9,11 +9,12 @@ Widget projectViewer({
 }) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
+    mainAxisSize: MainAxisSize.min,
     spacing: 8,
     children: [
       Container(
         width: MediaQuery.of(context).size.width * 0.35,
-        height: MediaQuery.of(context).size.height * 0.5,
+        // height: MediaQuery.of(context).size.height * 0.5,
         clipBehavior: Clip.antiAlias,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),
@@ -26,16 +27,10 @@ Widget projectViewer({
             ),
           ],
         ),
-        child: Image.network(
-          imageUrl,
-          fit: BoxFit.contain,
-        ),
+        child: Image.network(imageUrl, fit: BoxFit.contain),
       ),
       Text(type, style: TextStyle(color: mainColor)),
-      Text(
-        title,
-        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-      ),
+      Text(title, style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
     ],
   );
 }

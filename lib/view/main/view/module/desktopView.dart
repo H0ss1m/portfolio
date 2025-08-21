@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/controller/actions/projectFilters.dart';
 import 'package:portfolio/view/main/widget/miniWidgets/aboutmeItem.dart';
 import 'package:portfolio/view/main/widget/miniWidgets/project.dart';
 import 'package:portfolio/view/main/widget/miniWidgets/services.dart';
@@ -16,11 +17,7 @@ Widget desktopView(
   double excelValue,
   double wordValue,
   double powerPointValue,
-  bool allIsSelected,
-  bool webIsSelected,
-  bool mobileIsSelected,
-  bool desktopIsSelected,
-  bool designIsSelected,
+  
   {required List<QueryDocumentSnapshot> data,}
 ) {
   return Padding(
@@ -46,11 +43,6 @@ Widget desktopView(
           services(),
           const SizedBox(height: 10),
           project(
-            allIsSelected: allIsSelected,
-            webIsSelected: webIsSelected,
-            mobileIsSelected: mobileIsSelected,
-            desktopIsSelected: desktopIsSelected,
-            designIsSelected: designIsSelected,
             context: context,
             data: data,
           ),
