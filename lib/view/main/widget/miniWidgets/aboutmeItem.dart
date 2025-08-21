@@ -9,8 +9,13 @@ Widget aboutMeItem(
   double illustratorValue,
   double websiteValue,
   double desktopValue,
+  double excelValue,
+  double wordValue,
+  double powerPointValue,
+  // {required Key? key,}
 ) {
   return Row(
+    // key: key,
     crossAxisAlignment: CrossAxisAlignment.center,
     spacing: 15,
     children: [
@@ -33,9 +38,15 @@ Widget aboutMeItem(
             aboutViewer(percent: dartValue, skillName: 'Dart'),
             aboutViewer(percent: flutterValue, skillName: 'Flutter'),
             aboutViewer(percent: websiteValue, skillName: 'Website'),
-            aboutViewer(percent: desktopValue, skillName: 'Desktop Application'),
+            aboutViewer(
+              percent: desktopValue,
+              skillName: 'Desktop Application',
+            ),
             aboutViewer(percent: photoshopValue, skillName: 'Photoshop'),
             aboutViewer(percent: illustratorValue, skillName: 'Illustrator'),
+            aboutViewer(percent: wordValue, skillName: 'Word'),
+            aboutViewer(percent: excelValue, skillName: 'Excel'),
+            aboutViewer(percent: powerPointValue, skillName: 'PowerPoint'),
           ],
         ),
       ),

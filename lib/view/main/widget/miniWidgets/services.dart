@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/model/colorBallet.dart';
 import 'package:portfolio/view/main/widget/miniWidgets/servicesView.dart';
 
 Widget services() {
@@ -12,28 +11,32 @@ Widget services() {
         style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
       ),
       Text(
-        'Lorem ipsum dolor sit abet, connecter advising edit.',
+        'We offer a variety of services to help you achieve your goals. Whether you need mobile applications, web development, or graphic design, we have the expertise to deliver high-quality results.',
         style: TextStyle(fontSize: 16),
       ),
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           servicesView(
-            title: 'Service 1',
-            description: 'Description for Service 1',
+            title: 'Mobile Applications',
+            description:
+                'You can create mobile applications for both Android and iOS platforms. It\'s a great way to reach a wider audience. It\'s fast and efficient.',
             imagePath: 'assets/icons/mobile-app.png',
           ),
           const SizedBox(width: 8.0),
           servicesView(
-            title: 'Service 2',
-            description: 'Description for Service 2',
-            imagePath: 'assets/icons/mobile-app.png',
+            title: 'Web Development',
+            description:
+                'We offer web development services to create responsive and functional websites. It\'s essential for any business.',
+            imagePath: 'assets/icons/web-development.png',
           ),
           const SizedBox(width: 8.0),
           servicesView(
-            title: 'Service 3',
-            description: 'Description for Service 3',
-            imagePath: 'assets/icons/mobile-app.png',
+            title: 'Graphic Design',
+            description:
+                'Our graphic design services can help your brand stand out. We create visually appealing designs that effectively communicate your message.',
+            imagePath: 'assets/icons/graphic-design.png',
           ),
         ],
       ),

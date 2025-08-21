@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/view/main/widget/filterButton.dart';
 import 'package:portfolio/view/main/widget/projectsViewer.dart';
@@ -9,6 +10,7 @@ Widget project({
   required bool desktopIsSelected,
   required bool designIsSelected,
   required BuildContext context,
+  required List<QueryDocumentSnapshot> data,
 }) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.center,
@@ -58,7 +60,7 @@ Widget project({
         width: MediaQuery.of(context).size.width * 0.7,
         height: MediaQuery.of(context).size.height * 0.8,
         child: GridView.builder(
-          itemCount: 2,
+          itemCount: data.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             childAspectRatio: 0.75,
@@ -68,10 +70,9 @@ Widget project({
           itemBuilder: (context, index) {
             return projectViewer(
               context: context,
-              title: 'Project ${index + 1}',
-              type: 'Web Design',
-              imageUrl:
-                  'https://cdn.dribbble.com/userupload/44333560/file/2d2c38a50b0bc343c6973ccd4adb3a52.png?resize=1504x1128&vertical=center',
+              title: data[index]['title'] ?? 'Project Title',
+              type: data[index]['type'] ?? 'Web',
+              imageUrl: data[index]['imageUrl'] ?? '',
             );
           },
         ),
