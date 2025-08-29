@@ -24,6 +24,7 @@ class _MainPageState extends State<MainPage> {
       QuerySnapshot snapshot = await FirebaseFirestore.instance
           .collection('project')
           .get();
+          
       if (mounted) {
         // Check if the widget is still in the tree
         setState(() {

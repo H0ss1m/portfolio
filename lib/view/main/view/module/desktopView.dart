@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/view/main/widget/miniWidgets/aboutmeItem.dart';
+import 'package:portfolio/view/main/widget/miniWidgets/bottomBar.dart';
 import 'package:portfolio/view/main/widget/miniWidgets/project.dart';
 import 'package:portfolio/view/main/widget/miniWidgets/sendEmail.dart';
 import 'package:portfolio/view/main/widget/miniWidgets/services.dart';
@@ -30,6 +31,7 @@ Widget desktopView(
           services(servicesKey: servicesKey),
           const SizedBox(height: 10),
           project(context: context, data: data, projectsKey: projectsKey),
+          // ================= Comment Section =================
           // const SizedBox(height: 10),
           // Container(child: Text('Comment Section')),
           const SizedBox(height: 10),
@@ -38,7 +40,7 @@ Widget desktopView(
             contactKey: contactKey,
           ),
           const SizedBox(height: 10),
-          Container(child: Text('Seventh Item')),
+          bottomBar(),
         ],
       ),
     ),

@@ -87,7 +87,7 @@ Widget project({
             return projectViewer(
               context: context,
               title: data[index]['name'] ?? 'Project Title',
-              type: data[index]['type'] ?? 'Web',
+              type: data[index]['type'] ?? 'Type',
               imageUrl: data[index]['imageUrl'] ?? '',
             );
           },
