@@ -3,13 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/model/colorBallet.dart';
 import 'package:portfolio/view/main/widget/aboutViewer.dart';
 
-Widget aboutMeItem(
-  {
-    required List<QueryDocumentSnapshot> skillsData,
-    required GlobalKey aboutKey,
-  }
+Widget aboutMeItem({
+  required List<QueryDocumentSnapshot> skillsData,
+  required GlobalKey aboutKey,
   // {required Key? key,}
-) {
+}) {
   return Row(
     key: aboutKey,
     crossAxisAlignment: CrossAxisAlignment.center,
@@ -27,7 +25,7 @@ Widget aboutMeItem(
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             Text(
-              'Hello, I am a Mobile app developer with a passion for creating beautiful and functional applications.',
+              'I\'m Hossam Hassan, a passionate Mobile Developer & Graphic Designer with a strong focus on building functional and visually appealing digital solutions. With experience in Flutter development, I craft cross-platform mobile apps that deliver smooth performance and great user experiences. Alongside my development skills, I bring a creative edge as a graphic designer, ensuring every project I work on is both effective and aesthetically engaging. I love turning ideas into real products that help businesses grow and users enjoy. Always eager to learn, improve, and take on new challenges — let\'s create something amazing together!',
               style: TextStyle(fontSize: 16, color: textBlack),
             ),
             const SizedBox(height: 20),
@@ -41,7 +39,7 @@ Widget aboutMeItem(
                   skillName: skillsData[index]['skill'],
                 );
               },
-            )
+            ),
           ],
         ),
       ),

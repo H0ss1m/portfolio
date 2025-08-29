@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/model/colorBallet.dart';
+import 'package:portfolio/view/main/widget/socialMedia.dart';
 
 Widget welcomeItem(BuildContext context, GlobalKey homeKey) {
   return Row(
@@ -58,7 +59,7 @@ Widget welcomeItem(BuildContext context, GlobalKey homeKey) {
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.5,
               child: Text(
-                'I create beautiful and functional mobile applications. I am passionate about design and development, and I strive to create user-friendly experiences.',
+                'I build modern, user-friendly mobile applications and create impactful designs that bring ideas to life. With expertise in Flutter and graphic design, I help businesses stand out with creative solutions. Let’s work together to turn your vision into reality — get in touch today!',
                 style: TextStyle(
                   overflow: TextOverflow.fade,
                   fontSize: 15,
@@ -77,7 +78,18 @@ Widget welcomeItem(BuildContext context, GlobalKey homeKey) {
           ],
         ),
       ),
-      Expanded(child: Image.asset('assets/images/me.png', height: 600)),
+      Expanded(
+        child: Column(
+          children: [
+            Image.asset(
+              'assets/images/me.png',
+              // height: 400,
+              fit: BoxFit.cover,
+            ),
+            socialMedia(),
+          ],
+        ),
+      ),
     ],
   );
 }

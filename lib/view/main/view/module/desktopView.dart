@@ -35,11 +35,8 @@ Widget desktopView(
           // const SizedBox(height: 10),
           // Container(child: Text('Comment Section')),
           const SizedBox(height: 10),
-          contact(
-            context,
-            contactKey: contactKey,
-          ),
-          const SizedBox(height: 10),
+          contact(context, contactKey: contactKey),
+          const SizedBox(height: 20),
           bottomBar(),
         ],
       ),
