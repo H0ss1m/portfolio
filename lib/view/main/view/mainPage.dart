@@ -2,8 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/controller/actions/projectFilters.dart';
-import 'package:portfolio/view/main/view/module/desktopView.dart';
-import 'package:portfolio/view/main/view/module/mobileView.dart';
+import 'package:portfolio/view/main/view/module/mainPage/desktopView.dart';
+import 'package:portfolio/view/main/view/module/mainPage/mobileView.dart';
 import 'package:portfolio/view/main/widget/cuHeader.dart';
 
 class MainPage extends StatefulWidget {

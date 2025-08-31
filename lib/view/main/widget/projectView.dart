@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/model/colorBallet.dart';
 
-Widget projectViewer({
+Widget projectView({
   required BuildContext context,
   required String title,
   required String type,

@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/firebase_options.dart';
+import 'package:portfolio/view/main/view/allProject.dart';
 import 'package:portfolio/view/main/view/mainPage.dart';
 
 Future<void> main() async {
@@ -21,7 +22,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(fontFamily: 'Poppins', useMaterial3: true),
       home: MainPage(),
       initialRoute: '/mainPage',
-      getPages: [GetPage(name: '/mainPage', page: () => const MainPage())],
+      getPages: [
+        GetPage(name: '/mainPage', page: () => const MainPage()),
+        GetPage(name: '/allProjects', page: () => const AllProjects()),
+      ],
     );
   }
 }

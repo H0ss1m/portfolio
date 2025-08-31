@@ -89,11 +89,7 @@ Widget welcomeItem(BuildContext context, GlobalKey homeKey) {
       Expanded(
         child: Column(
           children: [
-            Image.asset(
-              'assets/images/me.png',
-              // height: 400,
-              fit: BoxFit.cover,
-            ),
+            Image.asset('assets/images/me.png', height: 600, fit: BoxFit.cover),
             socialMedia(),
           ],
         ),
