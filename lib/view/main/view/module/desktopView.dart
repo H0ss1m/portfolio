@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/view/main/widget/miniWidgets/aboutmeItem.dart';
@@ -22,19 +24,15 @@ Widget desktopView(
     padding: const EdgeInsets.all(20.0),
     child: SingleChildScrollView(
       child: Column(
+        spacing: 10.0,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           welcomeItem(context, homeKey),
-          const SizedBox(height: 10),
           aboutMeItem(skillsData: skillsData, aboutKey: aboutMeKey),
-          const SizedBox(height: 10),
           services(servicesKey: servicesKey),
-          const SizedBox(height: 10),
           project(context: context, data: data, projectsKey: projectsKey),
           // ================= Comment Section =================
-          // const SizedBox(height: 10),
           // Container(child: Text('Comment Section')),
-          const SizedBox(height: 10),
           contact(context, contactKey: contactKey),
           const SizedBox(height: 20),
           bottomBar(),

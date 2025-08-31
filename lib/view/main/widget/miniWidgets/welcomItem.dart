@@ -1,6 +1,9 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:portfolio/model/colorBallet.dart';
 import 'package:portfolio/view/main/widget/socialMedia.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 Widget welcomeItem(BuildContext context, GlobalKey homeKey) {
   return Row(
@@ -68,7 +71,12 @@ Widget welcomeItem(BuildContext context, GlobalKey homeKey) {
               ),
             ),
             MaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                launchUrl(
+                  Uri.parse('https://www.facebook.com/H0SSAM.7ASSAN'),
+                  mode: LaunchMode.externalApplication,
+                );
+              },
               color: mainColor,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5),

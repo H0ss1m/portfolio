@@ -82,8 +82,6 @@ class _MainPageState extends State<MainPage> {
   Future<void> scrollToSection(GlobalKey key) async {
     if (key.currentContext != null) {
       final context = key.currentContext!;
-      final renderBox = context.findRenderObject() as RenderBox;
-      final position = renderBox.localToGlobal(Offset.zero);
       await Scrollable.ensureVisible(
         context,
         duration: const Duration(seconds: 1),
