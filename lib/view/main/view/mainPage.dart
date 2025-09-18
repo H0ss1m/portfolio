@@ -5,6 +5,7 @@ import 'package:portfolio/controller/actions/projectFilters.dart';
 import 'package:portfolio/view/main/view/module/mainPage/desktopView.dart';
 import 'package:portfolio/view/main/view/module/mainPage/mobileView.dart';
 import 'package:portfolio/view/main/widget/cuHeader.dart';
+import 'package:portfolio/view/main/widget/drawer.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -24,7 +25,7 @@ class _MainPageState extends State<MainPage> {
       QuerySnapshot snapshot = await FirebaseFirestore.instance
           .collection('project')
           .get();
-          
+
       if (mounted) {
         // Check if the widget is still in the tree
         setState(() {
@@ -103,7 +104,16 @@ class _MainPageState extends State<MainPage> {
         projectsOnPressed: () => scrollToSection(projectsKey),
         contactOnPressed: () => scrollToSection(contactKey),
       ),
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: cuDrawer(
+          context: context,
+          homeKey: homeKey,
+          aboutKey: aboutMeKey,
+          servicesKey: servicesKey,
+          projectsKey: projectsKey,
+          contactKey: contactKey,
+        ),
+      ),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
           : _error != null
@@ -120,7 +130,16 @@ class _MainPageState extends State<MainPage> {
               projectsKey: projectsKey,
               contactKey: contactKey,
             )
-          : mobileView(),
+          : mobileView(
+            context: context,
+            homeKey: homeKey,
+            aboutKey: aboutMeKey,
+            skillsData: skillsData,
+            servicesKey: servicesKey,
+            data: data,
+            projectsKey: projectsKey,
+            contact: contactKey,
+          ),
     );
   }
 }

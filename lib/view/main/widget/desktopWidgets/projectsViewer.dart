@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/view/main/widget/mobileWidgets/projectsViewerMobile.dart';
 import 'package:portfolio/view/main/widget/projectView.dart';
 
 Widget projectsViewer({
@@ -28,12 +29,19 @@ Widget projectsViewer({
         mainAxisSpacing: 10.0,
       ),
       itemBuilder: (context, index) {
-        return projectView(
-          context: context,
-          title: data[index]['name'] ?? 'Project Title',
-          type: data[index]['type'] ?? 'Type',
-          imageUrl: data[index]['imageUrl'] ?? '',
-        );
+        return MediaQuery.of(context).size.width > 600
+            ? projectView(
+                context: context,
+                title: data[index]['name'] ?? 'Project Title',
+                type: data[index]['type'] ?? 'Type',
+                imageUrl: data[index]['imageUrl'] ?? '',
+              )
+            : projectsViewerMobile(
+                context: context,
+                title: data[index]['name'] ?? 'Project Title',
+                type: data[index]['type'] ?? 'Type',
+                imageUrl: data[index]['imageUrl'] ?? '',
+              );
       },
     ),
   );

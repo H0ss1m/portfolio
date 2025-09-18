@@ -3,13 +3,15 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/model/colorBallet.dart';
 
-AppBar cuHeader(BuildContext context, GlobalKey<ScaffoldState> scaffoldKey, 
-    {VoidCallback? homeOnPressed,
-    VoidCallback? aboutMeOnPressed,
-    VoidCallback? servicesOnPressed,
-    VoidCallback? projectsOnPressed,
-    VoidCallback? contactOnPressed}
-) {
+AppBar cuHeader(
+  BuildContext context,
+  GlobalKey<ScaffoldState> scaffoldKey, {
+  VoidCallback? homeOnPressed,
+  VoidCallback? aboutMeOnPressed,
+  VoidCallback? servicesOnPressed,
+  VoidCallback? projectsOnPressed,
+  VoidCallback? contactOnPressed,
+}) {
   return MediaQuery.of(context).size.width > 600
       ? cuDesktopHeader(
           context,
@@ -28,7 +30,9 @@ AppBar cuMobileHeader(
   GlobalKey<ScaffoldState> scaffoldKey,
 ) {
   return AppBar(
-    title: Text('Mobile Header'),
+    backgroundColor: mainColor,
+    iconTheme: const IconThemeData(color: Colors.white),
+    title: Text('Mobile Header', style: TextStyle(color: Colors.white)),
     leading: IconButton(
       icon: Icon(Icons.menu),
       onPressed: () {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/view/main/widget/miniWidgets/servicesView.dart';
+import 'package:portfolio/view/main/widget/desktopWidgets/servicesView.dart';
 
 Widget services(
   {

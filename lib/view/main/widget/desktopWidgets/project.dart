@@ -4,7 +4,7 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/route_manager.dart';
 import 'package:portfolio/controller/actions/projectFilters.dart';
 import 'package:portfolio/view/main/widget/filterButton.dart';
-import 'package:portfolio/view/main/widget/miniWidgets/projectsViewer.dart';
+import 'package:portfolio/view/main/widget/desktopWidgets/projectsViewer.dart';
 
 Widget project({
   required BuildContext context,
@@ -89,7 +89,12 @@ Widget project({
           );
         },
       ),
-      projectsViewer(context: context, data: data, height: MediaQuery.of(context).size.height * 0.8, width: MediaQuery.of(context).size.width * 0.7),
+      projectsViewer(
+        context: context,
+        data: data,
+        height: MediaQuery.of(context).size.height * 0.6,
+        width: MediaQuery.of(context).size.width,
+      ),
     ],
   );
 }

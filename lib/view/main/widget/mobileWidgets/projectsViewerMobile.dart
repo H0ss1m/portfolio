@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/model/colorBallet.dart';
 
-Widget projectView({
+Widget projectsViewerMobile({
   required BuildContext context,
   required String title,
   required String type,
@@ -12,10 +12,10 @@ Widget projectView({
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     mainAxisSize: MainAxisSize.min,
-    spacing: MediaQuery.of(context).size.width > 855 ? 8.0 : 0.0,
+    spacing: MediaQuery.of(context).size.width > 600 ? 8.0 : 0.0,
     children: [
       Container(
-        width: MediaQuery.of(context).size.width * 0.35,
+        // width: MediaQuery.of(context).size.width * 0.35,
         // height: MediaQuery.of(context).size.height * 0.5,
         clipBehavior: Clip.antiAlias,
         decoration: BoxDecoration(
@@ -35,7 +35,7 @@ Widget projectView({
       Text(
         title,
         style: TextStyle(
-          fontSize: 19,
+          fontSize: 16,
           fontWeight: FontWeight.bold,
           overflow: TextOverflow.ellipsis,
         ),

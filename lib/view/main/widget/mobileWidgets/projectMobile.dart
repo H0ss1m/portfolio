@@ -1,26 +1,32 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/src/simple/get_state.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:get/route_manager.dart';
 import 'package:portfolio/controller/actions/projectFilters.dart';
 import 'package:portfolio/view/main/widget/filterButton.dart';
 import 'package:portfolio/view/main/widget/desktopWidgets/projectsViewer.dart';
 
-Widget desktopProjects({
+Widget projectMobile({
   required BuildContext context,
   required List<QueryDocumentSnapshot> data,
   required GlobalKey projectsKey,
-  
 }) {
-  return Container(
-    padding: const EdgeInsets.all(16.0),
-    child: GetBuilder<PortfolioController>(
-      builder: (controller) {
-        return SingleChildScrollView(
-          child: Column(
+  return Column(
+    key: projectsKey,
+    crossAxisAlignment: CrossAxisAlignment.center,
+    spacing: 20.0,
+    children: [
+      const Text(
+        'Projects',
+        style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+      ),
+      const Text('Here are some of my projects:'),
+      GetBuilder<PortfolioController>(
+        builder: (controller) {
+          return Stack(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                spacing: 15.0,
                 children: [
                   filterButton(
                     title: 'All',
@@ -28,6 +34,7 @@ Widget desktopProjects({
                       controller.toggleAll();
                     },
                     isSelected: controller.allIsSelected,
+                    marginWidth: 5.0,
                   ),
                   filterButton(
                     title: 'Web',
@@ -35,6 +42,7 @@ Widget desktopProjects({
                       controller.toggleWeb();
                     },
                     isSelected: controller.webIsSelected,
+                    marginWidth: 5.0,
                   ),
                   filterButton(
                     title: 'Mobile',
@@ -42,6 +50,7 @@ Widget desktopProjects({
                       controller.toggleMobile();
                     },
                     isSelected: controller.mobileIsSelected,
+                    marginWidth: 5.0,
                   ),
                   filterButton(
                     title: 'Desktop',
@@ -49,6 +58,7 @@ Widget desktopProjects({
                       controller.toggleDesktop();
                     },
                     isSelected: controller.desktopIsSelected,
+                    marginWidth: 5.0,
                   ),
                   filterButton(
                     title: 'Design',
@@ -56,23 +66,29 @@ Widget desktopProjects({
                       controller.toggleDesign();
                     },
                     isSelected: controller.designIsSelected,
+                    marginWidth: 5.0,
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Get.toNamed('/allProjects');
+                    },
+                    child: const Text(
+                      'See All',
+                      style: TextStyle(color: Color(0xffFD6F00)),
+                    ),
                   ),
                 ],
               ),
-              const SizedBox(height: 16.0),
-              projectsViewer(
-                context: context,
-                data: data,
-                itemCount: data.length,
-                scrollable: true,
-                crossAxisCount: 3,
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
-              ),
             ],
-          ),
-        );
-      },
-    ),
+          );
+        },
+      ),
+      projectsViewer(
+        context: context,
+        data: data,
+        height: MediaQuery.of(context).size.height * 0.28,
+        width: MediaQuery.of(context).size.width,
+      ),
+    ],
   );
 }

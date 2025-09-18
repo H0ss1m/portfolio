@@ -2,12 +2,12 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/view/main/widget/miniWidgets/aboutmeItem.dart';
-import 'package:portfolio/view/main/widget/miniWidgets/bottomBar.dart';
-import 'package:portfolio/view/main/widget/miniWidgets/project.dart';
-import 'package:portfolio/view/main/widget/miniWidgets/sendEmail.dart';
-import 'package:portfolio/view/main/widget/miniWidgets/services.dart';
-import 'package:portfolio/view/main/widget/miniWidgets/welcomItem.dart';
+import 'package:portfolio/view/main/widget/desktopWidgets/aboutmeItem.dart';
+import 'package:portfolio/view/main/widget/desktopWidgets/bottomBar.dart';
+import 'package:portfolio/view/main/widget/desktopWidgets/project.dart';
+import 'package:portfolio/view/main/widget/desktopWidgets/sendEmail.dart';
+import 'package:portfolio/view/main/widget/desktopWidgets/services.dart';
+import 'package:portfolio/view/main/widget/desktopWidgets/welcomItem.dart';
 
 Widget desktopView(
   BuildContext context, {
@@ -19,6 +19,7 @@ Widget desktopView(
   required GlobalKey servicesKey,
   required GlobalKey projectsKey,
   required GlobalKey contactKey,
+  GlobalKey? bottomKey,
 }) {
   return Padding(
     padding: const EdgeInsets.all(20.0),
@@ -35,7 +36,9 @@ Widget desktopView(
           // Container(child: Text('Comment Section')),
           contact(context, contactKey: contactKey),
           const SizedBox(height: 20),
-          bottomBar(),
+          bottomBar(
+            bottomKey,
+          ),
         ],
       ),
     ),
