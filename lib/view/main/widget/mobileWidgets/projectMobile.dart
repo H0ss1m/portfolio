@@ -25,59 +25,62 @@ Widget projectMobile({
         builder: (controller) {
           return Stack(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  filterButton(
-                    title: 'All',
-                    onPressed: () {
-                      controller.toggleAll();
-                    },
-                    isSelected: controller.allIsSelected,
-                    marginWidth: 5.0,
-                  ),
-                  filterButton(
-                    title: 'Web',
-                    onPressed: () {
-                      controller.toggleWeb();
-                    },
-                    isSelected: controller.webIsSelected,
-                    marginWidth: 5.0,
-                  ),
-                  filterButton(
-                    title: 'Mobile',
-                    onPressed: () {
-                      controller.toggleMobile();
-                    },
-                    isSelected: controller.mobileIsSelected,
-                    marginWidth: 5.0,
-                  ),
-                  filterButton(
-                    title: 'Desktop',
-                    onPressed: () {
-                      controller.toggleDesktop();
-                    },
-                    isSelected: controller.desktopIsSelected,
-                    marginWidth: 5.0,
-                  ),
-                  filterButton(
-                    title: 'Design',
-                    onPressed: () {
-                      controller.toggleDesign();
-                    },
-                    isSelected: controller.designIsSelected,
-                    marginWidth: 5.0,
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Get.toNamed('/allProjects');
-                    },
-                    child: const Text(
-                      'See All',
-                      style: TextStyle(color: Color(0xffFD6F00)),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    filterButton(
+                      title: 'All',
+                      onPressed: () {
+                        controller.toggleAll();
+                      },
+                      isSelected: controller.allIsSelected,
+                      marginWidth: 5.0,
                     ),
-                  ),
-                ],
+                    filterButton(
+                      title: 'Web',
+                      onPressed: () {
+                        controller.toggleWeb();
+                      },
+                      isSelected: controller.webIsSelected,
+                      marginWidth: 5.0,
+                    ),
+                    filterButton(
+                      title: 'Mobile',
+                      onPressed: () {
+                        controller.toggleMobile();
+                      },
+                      isSelected: controller.mobileIsSelected,
+                      marginWidth: 5.0,
+                    ),
+                    filterButton(
+                      title: 'Desktop',
+                      onPressed: () {
+                        controller.toggleDesktop();
+                      },
+                      isSelected: controller.desktopIsSelected,
+                      marginWidth: 5.0,
+                    ),
+                    filterButton(
+                      title: 'Design',
+                      onPressed: () {
+                        controller.toggleDesign();
+                      },
+                      isSelected: controller.designIsSelected,
+                      marginWidth: 5.0,
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Get.toNamed('/allProjects');
+                      },
+                      child: const Text(
+                        'See All',
+                        style: TextStyle(color: Color(0xffFD6F00)),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           );

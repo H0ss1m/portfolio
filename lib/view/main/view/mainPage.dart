@@ -137,6 +137,7 @@ class _MainPageState extends State<MainPage> {
           servicesKey: servicesKey,
           projectsKey: projectsKey,
           contactKey: contactKey,
+          cvData: cv,
         ),
       ),
       body: _isLoading
