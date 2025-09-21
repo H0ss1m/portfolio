@@ -16,7 +16,6 @@ Widget projectsViewer({
     width: width,
     height: height,
     child: GridView.builder(
-      // reverse: true,
       physics: scrollable
           ? const AlwaysScrollableScrollPhysics()
           : const NeverScrollableScrollPhysics(),
@@ -24,7 +23,6 @@ Widget projectsViewer({
       shrinkWrap: true,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: crossAxisCount,
-        // childAspectRatio: 0.75,
         crossAxisSpacing: 10.0,
         mainAxisSpacing: 10.0,
       ),

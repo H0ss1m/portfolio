@@ -10,7 +10,7 @@ Widget projectView({
   required String imageUrl,
 }) {
   return Column(
-    crossAxisAlignment: CrossAxisAlignment.center,
+    crossAxisAlignment: CrossAxisAlignment.start,
     mainAxisSize: MainAxisSize.min,
     spacing: MediaQuery.of(context).size.width > 855 ? 8.0 : 0.0,
     children: [
