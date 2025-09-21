@@ -7,6 +7,8 @@ import 'package:url_launcher/url_launcher.dart';
 
 Widget welcomeItem(BuildContext context, GlobalKey homeKey) {
   return Row(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    mainAxisAlignment: MainAxisAlignment.center,
     key: homeKey,
     children: [
       Expanded(
@@ -25,7 +27,7 @@ Widget welcomeItem(BuildContext context, GlobalKey homeKey) {
             Text(
               'Hossam Hassan',
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 40,
                 color: mainColor,
                 fontWeight: FontWeight.w600,
               ),
@@ -36,7 +38,7 @@ Widget welcomeItem(BuildContext context, GlobalKey homeKey) {
                 Text(
                   'Mobile Developer',
                   style: TextStyle(
-                    fontSize: 40,
+                    fontSize: 35,
                     color: textBlack,
                     fontWeight: FontWeight.w600,
                   ),
@@ -48,7 +50,7 @@ Widget welcomeItem(BuildContext context, GlobalKey homeKey) {
                       child: Text(
                         '& Graphic Designer',
                         style: TextStyle(
-                          fontSize: 32,
+                          fontSize: 30,
                           color: textBlack,
                           fontWeight: FontWeight.w500,
                           overflow: TextOverflow.fade,

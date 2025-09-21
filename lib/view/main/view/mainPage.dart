@@ -17,6 +17,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   List<QueryDocumentSnapshot> data = [];
   List<QueryDocumentSnapshot> skillsData = [];
+  List<QueryDocumentSnapshot> cv = [];
   bool _isLoading = true;
   String? _error;
 
@@ -30,6 +31,28 @@ class _MainPageState extends State<MainPage> {
         // Check if the widget is still in the tree
         setState(() {
           data = snapshot.docs;
+          _isLoading = false;
+        });
+      }
+    } catch (e) {
+      if (mounted) {
+        setState(() {
+          _error = "Failed to load projects: $e";
+          _isLoading = false;
+        });
+      }
+    }
+  }
+  getCV() async {
+    try {
+      QuerySnapshot cvLink = await FirebaseFirestore.instance
+          .collection('cv')
+          .get();
+
+      if (mounted) {
+        // Check if the widget is still in the tree
+        setState(() {
+          cv = cvLink.docs;
           _isLoading = false;
         });
       }
@@ -71,6 +94,7 @@ class _MainPageState extends State<MainPage> {
     Get.put(PortfolioController());
     getData();
     getSkillsData();
+    getCV();
   }
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -98,6 +122,7 @@ class _MainPageState extends State<MainPage> {
       appBar: cuHeader(
         context,
         _scaffoldKey,
+        cvData: cv,
         homeOnPressed: () => scrollToSection(homeKey),
         aboutMeOnPressed: () => scrollToSection(aboutMeKey),
         servicesOnPressed: () => scrollToSection(servicesKey),
@@ -131,15 +156,15 @@ class _MainPageState extends State<MainPage> {
               contactKey: contactKey,
             )
           : mobileView(
-            context: context,
-            homeKey: homeKey,
-            aboutKey: aboutMeKey,
-            skillsData: skillsData,
-            servicesKey: servicesKey,
-            data: data,
-            projectsKey: projectsKey,
-            contact: contactKey,
-          ),
+              context: context,
+              homeKey: homeKey,
+              aboutKey: aboutMeKey,
+              skillsData: skillsData,
+              servicesKey: servicesKey,
+              data: data,
+              projectsKey: projectsKey,
+              contact: contactKey,
+            ),
     );
   }
 }

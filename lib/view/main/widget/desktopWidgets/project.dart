@@ -89,11 +89,13 @@ Widget project({
           );
         },
       ),
-      projectsViewer(
-        context: context,
-        data: data,
-        height: MediaQuery.of(context).size.height * 0.6,
-        width: MediaQuery.of(context).size.width,
+      Center(
+        child: projectsViewer(
+          context: context,
+          data: data,
+          height: MediaQuery.of(context).size.height * 0.8,
+          width: MediaQuery.of(context).size.width,
+        ),
       ),
     ],
   );
