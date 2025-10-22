@@ -124,6 +124,7 @@ class _MainPageState extends State<MainPage> {
         _scaffoldKey,
         cvData: cv,
         homeOnPressed: () => scrollToSection(homeKey),
+        videosOnPressed: () => Get.toNamed('/videos'),
         aboutMeOnPressed: () => scrollToSection(aboutMeKey),
         servicesOnPressed: () => scrollToSection(servicesKey),
         projectsOnPressed: () => scrollToSection(projectsKey),

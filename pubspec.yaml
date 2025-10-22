@@ -48,6 +48,8 @@ dependencies:
   cloud_firestore: ^6.0.0
   web: ^1.1.1
   url_launcher: ^6.3.2
+  markdown: ^7.3.0
+  markdown_widget: ^2.3.2+8
 
 dev_dependencies:
   flutter_test:

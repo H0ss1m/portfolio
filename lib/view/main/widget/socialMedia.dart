@@ -40,10 +40,21 @@ Widget socialMedia() {
       ),
       IconButton(
         onPressed: () {
-          launchURL('https://www.youtube.com/@h0ssam7a55an');
+          launchURL('https://www.youtube.com/@h0ssam.7asan');
         },
         icon: Image.asset(
           'assets/icons/youtube.png',
+          fit: BoxFit.cover,
+          color: Colors.black,
+          width: 30,
+        ),
+      ),
+      IconButton(
+        onPressed: () {
+          launchURL('https://github.com/H0ss1m');
+        },
+        icon: Image.asset(
+          'assets/icons/github.png',
           fit: BoxFit.cover,
           color: Colors.black,
           width: 30,

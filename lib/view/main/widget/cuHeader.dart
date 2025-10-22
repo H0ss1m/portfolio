@@ -9,6 +9,7 @@ AppBar cuHeader(
   BuildContext context,
   GlobalKey<ScaffoldState> scaffoldKey, {
   VoidCallback? homeOnPressed,
+  VoidCallback? videosOnPressed,
   VoidCallback? aboutMeOnPressed,
   VoidCallback? servicesOnPressed,
   VoidCallback? projectsOnPressed,
@@ -19,6 +20,7 @@ AppBar cuHeader(
       ? cuDesktopHeader(
           context,
           homeOnPressed: homeOnPressed,
+          videosOnPressed: videosOnPressed,
           aboutMeOnPressed: aboutMeOnPressed,
           servicesOnPressed: servicesOnPressed,
           projectsOnPressed: projectsOnPressed,
@@ -50,6 +52,7 @@ AppBar cuMobileHeader(
 AppBar cuDesktopHeader(
   BuildContext context, {
   required VoidCallback? homeOnPressed,
+  required VoidCallback? videosOnPressed,
   required VoidCallback? aboutMeOnPressed,
   required VoidCallback? servicesOnPressed,
   required VoidCallback? projectsOnPressed,
@@ -70,6 +73,7 @@ AppBar cuDesktopHeader(
     // ),
     actions: [
       IconButton(icon: const Text('Home'), onPressed: homeOnPressed),
+      IconButton(icon: const Text('Videos'), onPressed: videosOnPressed),
       IconButton(icon: const Text('About Me'), onPressed: aboutMeOnPressed),
       IconButton(icon: const Text('Services'), onPressed: servicesOnPressed),
       IconButton(icon: const Text('Projects'), onPressed: projectsOnPressed),

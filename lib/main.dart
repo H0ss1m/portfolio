@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:portfolio/firebase_options.dart';
 import 'package:portfolio/view/main/view/allProject.dart';
 import 'package:portfolio/view/main/view/mainPage.dart';
+import 'package:portfolio/view/main/view/videos_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,11 +21,13 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Poppins', useMaterial3: true),
+      title: 'Hossam\'s Portfolio',
       home: MainPage(),
       initialRoute: '/mainPage',
       getPages: [
         GetPage(name: '/mainPage', page: () => const MainPage()),
         GetPage(name: '/allProjects', page: () => const AllProjects()),
+        GetPage(name: '/videos', page: () => const VideosPage()),
       ],
     );
   }
