@@ -37,11 +37,29 @@ Widget contact(BuildContext context, {required GlobalKey contactKey}) {
           'user_name' : name,
           'to_email' : toEmail,
           'subject' : subject,
-          'message' : message + toEmail,
+          'message' : message,
         }
       }),
     );
-    print(response.body);
+    if (response.statusCode == 200) {
+      SnackBar snackBar = SnackBar(
+        content: Text('Email sent successfully!'),
+        backgroundColor: Colors.green,
+        duration: Duration(seconds: 3),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      nameController.clear();
+      emailController.clear();
+      subjectController.clear();
+      messageController.clear();
+    } else {
+      SnackBar snackBar = SnackBar(
+        content: Text('Failed to send email. Please try again later.'),
+        backgroundColor: Colors.red,
+        duration: Duration(seconds: 3),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    }
   }
 
   return Center(
@@ -70,7 +88,8 @@ Widget contact(BuildContext context, {required GlobalKey contactKey}) {
                 style: TextStyle(fontWeight: FontWeight.bold),
                 decoration: InputDecoration(
                   focusColor: mainColor,
-                  labelText: 'Enter Your Name',
+                  hintText: 'Enter Your Name',
+                  hintStyle: TextStyle(fontWeight: FontWeight.normal, color: Colors.grey),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5.0),
                     borderSide: BorderSide(color: mainColor),
@@ -83,10 +102,12 @@ Widget contact(BuildContext context, {required GlobalKey contactKey}) {
               ),
               TextField(
                 controller: emailController,
+                style: TextStyle(fontWeight: FontWeight.bold),
                 keyboardType: TextInputType.emailAddress,
                 textInputAction: TextInputAction.send,
                 decoration: InputDecoration(
                   hintText: 'Enter your email',
+                  hintStyle: TextStyle(fontWeight: FontWeight.normal, color: Colors.grey),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5.0),
                     borderSide: BorderSide(color: mainColor),
@@ -100,10 +121,12 @@ Widget contact(BuildContext context, {required GlobalKey contactKey}) {
               TextField(
                 controller: subjectController,
                 keyboardType: TextInputType.text,
+                style: TextStyle(fontWeight: FontWeight.bold),
                 maxLines: 1,
                 textInputAction: TextInputAction.send,
                 decoration: InputDecoration(
                   hintText: 'Enter Subject of your Message',
+                  hintStyle: TextStyle(fontWeight: FontWeight.normal, color: Colors.grey),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5.0),
                     borderSide: BorderSide(color: mainColor),
@@ -121,6 +144,7 @@ Widget contact(BuildContext context, {required GlobalKey contactKey}) {
                 maxLines: 5,
                 decoration: InputDecoration(
                   hintText: 'Enter your Message',
+                  hintStyle: TextStyle(fontWeight: FontWeight.normal, color: Colors.grey),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5.0),
                     borderSide: BorderSide(color: mainColor),
@@ -143,12 +167,8 @@ Widget contact(BuildContext context, {required GlobalKey contactKey}) {
                     name: nameController.text,
                     toEmail: emailController.text,
                     subject: subjectController.text,
-                    message: messageController.text,
+                    message: '${messageController.text}\n\nContact Email: ${emailController.text}',
                   );
-                  // nameController.clear();
-                  // emailController.clear();
-                  // subjectController.clear();
-                  // messageController.clear();
                 },
                 color: mainColor,
                 shape: RoundedRectangleBorder(
