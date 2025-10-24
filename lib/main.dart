@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:portfolio/firebase_options.dart';
 import 'package:portfolio/view/main/view/allProject.dart';
 import 'package:portfolio/view/main/view/mainPage.dart';
-import 'package:portfolio/view/main/view/videos/video_details.dart';
 import 'package:portfolio/view/main/view/videos/videos_page.dart';
 
 Future<void> main() async {

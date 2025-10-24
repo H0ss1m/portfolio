@@ -58,7 +58,6 @@ AppBar cuDesktopHeader(
   required VoidCallback? projectsOnPressed,
   required VoidCallback? contactOnPressed,
   required List<QueryDocumentSnapshot> cvData,
-
 }) {
   return AppBar(
     automaticallyImplyLeading: false,
@@ -72,12 +71,45 @@ AppBar cuDesktopHeader(
     //   ),
     // ),
     actions: [
-      IconButton(icon: const Text('Home', style: TextStyle(fontWeight: FontWeight.bold),), onPressed: homeOnPressed),
-      IconButton(icon: const Text('Videos', style: TextStyle(fontWeight: FontWeight.bold),), onPressed: videosOnPressed),
-      IconButton(icon: const Text('About Me', style: TextStyle(fontWeight: FontWeight.bold),), onPressed: aboutMeOnPressed),
-      IconButton(icon: const Text('Services', style: TextStyle(fontWeight: FontWeight.bold),), onPressed: servicesOnPressed),
-      IconButton(icon: const Text('Projects', style: TextStyle(fontWeight: FontWeight.bold),), onPressed: projectsOnPressed),
-      IconButton(icon: const Text('Contact', style: TextStyle(fontWeight: FontWeight.bold),), onPressed: contactOnPressed),
+      IconButton(
+        icon: const Text('Home', style: TextStyle(fontWeight: FontWeight.w600)),
+        onPressed: homeOnPressed,
+      ),
+      IconButton(
+        icon: const Text(
+          'Videos',
+          style: TextStyle(fontWeight: FontWeight.w600),
+        ),
+        onPressed: videosOnPressed,
+      ),
+      IconButton(
+        icon: const Text(
+          'About Me',
+          style: TextStyle(fontWeight: FontWeight.w600),
+        ),
+        onPressed: aboutMeOnPressed,
+      ),
+      IconButton(
+        icon: const Text(
+          'Services',
+          style: TextStyle(fontWeight: FontWeight.w600),
+        ),
+        onPressed: servicesOnPressed,
+      ),
+      IconButton(
+        icon: const Text(
+          'Projects',
+          style: TextStyle(fontWeight: FontWeight.w600),
+        ),
+        onPressed: projectsOnPressed,
+      ),
+      IconButton(
+        icon: const Text(
+          'Contact',
+          style: TextStyle(fontWeight: FontWeight.w600),
+        ),
+        onPressed: contactOnPressed,
+      ),
       MaterialButton(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         onPressed: () {
@@ -85,9 +117,9 @@ AppBar cuDesktopHeader(
             final cvUrl = cvData[0]['cvLink'];
             launchURL(cvUrl);
           } else {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('CV not available')),
-            );
+            ScaffoldMessenger.of(
+              context,
+            ).showSnackBar(const SnackBar(content: Text('CV not available')));
           }
         },
         color: mainColor,
