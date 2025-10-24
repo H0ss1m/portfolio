@@ -47,24 +47,12 @@ class _VideosPageState extends State<VideosPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        title: const Text('Videos Page'),
-      ),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
           : _error != null
           ? Center(child: Text(_error!))
           : MediaQuery.of(context).size.width > 600
-          ? videosDesktop(
-          context: context,
-          videosList: videos,
-          )
+          ? const VideosDesktop()
           : videosMobile(),
     );
   }

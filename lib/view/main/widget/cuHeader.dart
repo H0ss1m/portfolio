@@ -72,12 +72,12 @@ AppBar cuDesktopHeader(
     //   ),
     // ),
     actions: [
-      IconButton(icon: const Text('Home'), onPressed: homeOnPressed),
-      IconButton(icon: const Text('Videos'), onPressed: videosOnPressed),
-      IconButton(icon: const Text('About Me'), onPressed: aboutMeOnPressed),
-      IconButton(icon: const Text('Services'), onPressed: servicesOnPressed),
-      IconButton(icon: const Text('Projects'), onPressed: projectsOnPressed),
-      IconButton(icon: const Text('Contact'), onPressed: contactOnPressed),
+      IconButton(icon: const Text('Home', style: TextStyle(fontWeight: FontWeight.bold),), onPressed: homeOnPressed),
+      IconButton(icon: const Text('Videos', style: TextStyle(fontWeight: FontWeight.bold),), onPressed: videosOnPressed),
+      IconButton(icon: const Text('About Me', style: TextStyle(fontWeight: FontWeight.bold),), onPressed: aboutMeOnPressed),
+      IconButton(icon: const Text('Services', style: TextStyle(fontWeight: FontWeight.bold),), onPressed: servicesOnPressed),
+      IconButton(icon: const Text('Projects', style: TextStyle(fontWeight: FontWeight.bold),), onPressed: projectsOnPressed),
+      IconButton(icon: const Text('Contact', style: TextStyle(fontWeight: FontWeight.bold),), onPressed: contactOnPressed),
       MaterialButton(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         onPressed: () {
