@@ -6,12 +6,13 @@ import 'package:portfolio/view/main/widget/projectView.dart';
 Widget projectsViewer({
   required BuildContext context,
   required List<QueryDocumentSnapshot> data,
-  int itemCount = 2,
+  int? itemCount,
   bool scrollable = false,
   int crossAxisCount = 2,
   required double height,
   required double width,
 }) {
+  final int count = itemCount ?? data.length;
   return SizedBox(
     width: width,
     height: height,
@@ -19,7 +20,7 @@ Widget projectsViewer({
       physics: scrollable
           ? const AlwaysScrollableScrollPhysics()
           : const NeverScrollableScrollPhysics(),
-      itemCount: itemCount,
+      itemCount: count > 2 ? 2 : count,
       shrinkWrap: true,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: crossAxisCount,
@@ -33,12 +34,16 @@ Widget projectsViewer({
                 title: data[index]['name'] ?? 'Project Title',
                 type: data[index]['type'] ?? 'Type',
                 imageUrl: data[index]['imageUrl'] ?? '',
+                projectUrl: data[index]['projectUrl'] ?? '',
+                gitHubUrl: data[index]['gitHubUrl'] ?? '',
               )
             : projectsViewerMobile(
                 context: context,
                 title: data[index]['name'] ?? 'Project Title',
                 type: data[index]['type'] ?? 'Type',
                 imageUrl: data[index]['imageUrl'] ?? '',
+                projectUrl: data[index]['projectUrl'] ?? '',
+                gitHubUrl: data[index]['gitHubUrl'] ?? '',
               );
       },
     ),
